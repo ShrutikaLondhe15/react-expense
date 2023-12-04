@@ -29,9 +29,8 @@ function App() {
   ];
 
   return (
-    
     <div>
-      <h2>Lets get started!</h2>
+      <h1>Expense Tracker</h1>
       {expenses.map((expense, index) => (
         <ExpenseItem
           key={index} 
