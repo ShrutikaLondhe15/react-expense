@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "../Expenses/ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setAmount] = useState("");
   const [enteredDate, setdate] = useState("");
+  const [enteredloc, setLoc] = useState("");
 
   // const [userInput, setUserInput] = useState({
   //     enteredTitle:'',
@@ -30,6 +31,14 @@ const ExpenseForm = () => {
     // })
   };
   const onclickHandler3 = (event) => {
+    setLoc(event.target.value);
+    // setUserInput({
+    //     ...userInput,
+    //     enteredloc:event.target.value
+    // })
+  };
+
+  const onclickHandler4 = (event) => {
     setdate(event.target.value);
     // setUserInput({
     //     ...userInput,
@@ -37,15 +46,22 @@ const ExpenseForm = () => {
     // })
   };
 
-  const submitHandler = (event) =>{
+  const submitHandler = (event) => {
     event.preventDefault();
 
-    const expenseData =  {
-        title : enteredTitle,
-        amount : enteredAmount,
-        date : new Date(enteredDate)
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      loc: enteredloc,
+      date: new Date(enteredDate),
     };
-    console.log(expenseData)
+    
+    props.onSaveExpenseData(expenseData);
+    
+    setEnteredTitle("");
+    setAmount("");
+    setdate("");
+    setLoc("");
   };
 
   return (
@@ -54,19 +70,33 @@ const ExpenseForm = () => {
         <div className="new-expense__controls">
           <div className="new-expense__control">
             <label>Expense Item</label>
-            <input onChange={onclickHandler1} type="text" />
+            <input
+              onChange={onclickHandler1}
+              type="text"
+              value={enteredTitle}
+            />
           </div>
           <div className="new-expense__control">
             <label>Expenditure Location</label>
-            <input onChange={onclickHandler2} type="text" />
+            <input onChange={onclickHandler3} type="text" value={enteredloc} />
           </div>
           <div className="new-expense__control">
             <label>Expense Amount</label>
-            <input onChange={onclickHandler3} type="text" />
+            <input
+              onChange={onclickHandler2}
+              type="text"
+              value={enteredAmount}
+            />
           </div>
           <div className="new-expense__control">
             <label>Date</label>
-            <input type="date" min="2023-09-09" max="2024-12-31" />
+            <input
+              type="date"
+              min="2023-09-09"
+              max="2024-12-31"
+              onChange={onclickHandler4}
+              value={enteredDate}
+            />
           </div>
         </div>
         <div className="new-expense__actions">
