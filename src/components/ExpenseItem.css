@@ -66,8 +66,18 @@
 .expense-item__delete {
   font-size: 1rem;
   font-weight: bold;
-  color: white;
+  color: rgb(1, 1, 1);
   background-color: #ff0606;
+  border: 1px solid white;
+  padding: 0.5rem;
+  border-radius: 12px;
+}
+
+.expense-item__add {
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgb(17, 17, 17);
+  background-color: #06ff2b;
   border: 1px solid white;
   padding: 0.5rem;
   border-radius: 12px;

@@ -31,14 +31,14 @@ const App = () => {
       id: 'e3',
       date: new Date(2023, 9, 13),
       title: "Shopping",
-      amount: 200,
+      amount: 1100,
       locationOfExpenditure: "Zudio",
     },
     {
       id: 'e3',
       date: new Date(2023, 9, 13),
       title: "Books",
-      amount: 200,
+      amount: 159,
       locationOfExpenditure: "Book store",
     }
   ];
