@@ -4,7 +4,7 @@ import Card from './Card';
 import ExpenseItem from "./ExpenseItem";
 
 
-function ExpenseDetails(props) {
+const ExpenseDetails = (props) =>{
   return (   
     <Card className="expenses">
         {props.expenses.map((expense, index) => (
