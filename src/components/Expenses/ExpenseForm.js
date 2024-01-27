@@ -5,7 +5,7 @@ const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setAmount] = useState("");
   const [enteredDate, setdate] = useState("");
-  const [enteredloc, setLoc] = useState("");
+  const [enteredloc, setloc] = useState("");
 
   // const [userInput, setUserInput] = useState({
   //     enteredTitle:'',
@@ -21,6 +21,15 @@ const ExpenseForm = (props) => {
     // })
   };
   const onclickHandler2 = (event) => {
+    setloc(event.target.value);
+    
+
+     // setUserInput({
+    //     ...userInput,
+    //     enteredloc:event.target.value
+    // })
+  };
+  const onclickHandler3 = (event) => {
     setAmount(event.target.value);
     // setUserInput({
     //     ...userInput,
@@ -29,13 +38,7 @@ const ExpenseForm = (props) => {
     // setUserInput((prevState)={
     //     return {...prevState, enteredTitle :event.target.value};
     // })
-  };
-  const onclickHandler3 = (event) => {
-    setLoc(event.target.value);
-    // setUserInput({
-    //     ...userInput,
-    //     enteredloc:event.target.value
-    // })
+   
   };
 
   const onclickHandler4 = (event) => {
@@ -51,17 +54,17 @@ const ExpenseForm = (props) => {
 
     const expenseData = {
       title: enteredTitle,
+      locationOfExpenditure: enteredloc,
       amount: enteredAmount,
-      loc: enteredloc,
       date: new Date(enteredDate),
     };
-    
+  // console.log(expenseData)
     props.onSaveExpenseData(expenseData);
-    
+
     setEnteredTitle("");
     setAmount("");
+    setloc("");
     setdate("");
-    setLoc("");
   };
 
   return (
@@ -78,12 +81,15 @@ const ExpenseForm = (props) => {
           </div>
           <div className="new-expense__control">
             <label>Expenditure Location</label>
-            <input onChange={onclickHandler3} type="text" value={enteredloc} />
+            <input type="text"
+             onChange={onclickHandler2} 
+             value={enteredloc} />
           </div>
+
           <div className="new-expense__control">
             <label>Expense Amount</label>
             <input
-              onChange={onclickHandler2}
+              onChange={onclickHandler3}
               type="text"
               value={enteredAmount}
             />

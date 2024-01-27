@@ -1,11 +1,11 @@
 // App.js
-import React from 'react';
+import React, { useState } from 'react';
 import ExpenseDetails from './components/ExpenseDetails';
 import './components/ExpenseItem.css'
 import NewExpense from './components/Expenses/NewExpense';
 
-const App = () => {
-  const expenses = [
+
+  const dummyexpenses = [
     {
       id: 'e1',
       date: new Date(2023, 9, 13),
@@ -28,14 +28,14 @@ const App = () => {
       locationOfExpenditure: "Inox",
     },
     {
-      id: 'e3',
+      id: 'e4',
       date: new Date(2023, 9, 13),
       title: "Shopping",
       amount: 1100,
       locationOfExpenditure: "Zudio",
     },
     {
-      id: 'e3',
+      id: 'e5',
       date: new Date(2023, 9, 13),
       title: "Books",
       amount: 159,
@@ -44,10 +44,14 @@ const App = () => {
   ];
 
 
-const addExpenseHandler = (expense) =>{
-  console.log("In app.js")
-  console.log(expense)
+  const App = () => {
+  
+  const [expenses,setExpenses] =useState(dummyexpenses);
 
+  const addExpenseHandler = (expense) =>{
+    setExpenses(prevExpense => {
+      return [expense, ...prevExpense]
+    })
 }
 
   return (
@@ -55,7 +59,7 @@ const addExpenseHandler = (expense) =>{
       <div className="expense-item">
         <div className="expense-item__description">
           <h1>Expense Item!</h1>
-        </div>
+        </div>  
       </div>
       <div>
         <NewExpense onAddExpense={addExpenseHandler}/>
