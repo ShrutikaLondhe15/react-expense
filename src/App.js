@@ -26,20 +26,6 @@ import NewExpense from './components/NewExpense/NewExpense';
       title: "Movies",
       amount: 200,
       locationOfExpenditure: "Inox",
-    },
-    {
-      id: 'e4',
-      date: new Date(2023, 9, 13),
-      title: "Shopping",
-      amount: 1100,
-      locationOfExpenditure: "Zudio",
-    },
-    {
-      id: 'e5',
-      date: new Date(2023, 9, 13),
-      title: "Books",
-      amount: 159,
-      locationOfExpenditure: "Book store",
     }
   ];
 
