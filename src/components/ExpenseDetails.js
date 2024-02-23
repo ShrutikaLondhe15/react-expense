@@ -4,7 +4,7 @@ import Card from "./Card";
 //import ExpenseItem from "./ExpenseItem";
 import ExpensesFilter from "./Expenses/ExpenseFilter";
 import ExpensesList from './Expenses/ExpenseList';
-
+import ExpenseChart from './Expenses/ExpensesChart';
 const ExpenseDetails = (props) => {
   const [filteredYear, setFilteredYear] = useState("2020");
 
@@ -31,6 +31,7 @@ const ExpenseDetails = (props) => {
       //     date={expense.date}
       //   />
       // ))} */}
+      <ExpenseChart expenses={filteredExpenses}/>
       <ExpensesList items={filteredExpenses} />
     </Card>
   );
