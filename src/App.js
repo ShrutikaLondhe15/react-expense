@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import ExpenseDetails from './components/ExpenseDetails';
 import './components/ExpenseItem.css'
-import NewExpense from './components/Expenses/NewExpense';
+import NewExpense from './components/NewExpense/NewExpense';
 
 
   const dummyexpenses = [
